@@ -7,11 +7,21 @@ import {IProduct} from "../../../../../shared/mocks/3-directives/product-informa
 })
 export class InformationComponent {
   @Input()
-  public product:IProduct;
+  public product:IProduct=null;
 
   @Output()
   public addToCart: EventEmitter<any>=new EventEmitter<any>()
 
+  public isShow:boolean=false
 
 
+
+
+  show(flag:boolean) {
+    this.isShow=flag
+  }
+
+  addToBasket() {
+    this.addToCart.emit()
+  }
 }
