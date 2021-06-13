@@ -9,7 +9,7 @@ import { SideMenuComponent } from './home-page/side-menu/side-menu.component';
 import { ProductCardComponent } from './home-page/product-card/product-card.component';
 import { ProductsService } from './services/products/products.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { BASE_URL_TOKEN } from './services/interceptor/config';
+import {BASE_URL_TOKEN, baseUrl} from './services/interceptor/config';
 import { environment } from './../environments/environment';
 import { CategoriesService } from './services/categories/category.service';
 
@@ -29,7 +29,8 @@ import { CategoriesService } from './services/categories/category.service';
 
     {
       provide: BASE_URL_TOKEN,
-      useValue: environment.baseUrl,
+      //useValue: environment.baseUrl,
+      useValue: baseUrl
     },
     {
       provide: HTTP_INTERCEPTORS,

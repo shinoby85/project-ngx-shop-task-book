@@ -5,9 +5,11 @@
   </div>
 
   <div class="home-page-content-products">
-    <div class="products-wrap">
-      <div class="product">
-        <ngx-shop-product-card></ngx-shop-product-card>
+    <div class="products-wrap" *ngIf="products$|async as products">
+      <div class="product" *ngFor="let product of products">
+        <ngx-shop-product-card [product]="product">
+
+        </ngx-shop-product-card>
       </div>
     </div>
   </div>
