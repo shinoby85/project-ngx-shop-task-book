@@ -1,7 +1,9 @@
-import {Component} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {ProductsService} from "../services/products/products.service";
 import {Observable} from "rxjs";
 import {IProduct} from "../../../../../shared/mocks/4-services/products";
+import {CategoriesService} from "../services/categories/category.service";
+import {ICategory} from "../../../../../shared/mocks/4-services/categories";
 
 @Component({
   selector: 'ngx-shop-home-page',
@@ -10,10 +12,21 @@ import {IProduct} from "../../../../../shared/mocks/4-services/products";
 })
 // @ts-ignore
 export class HomePageComponent {
-  public products$: Observable<IProduct[]> = this.productsService.getProducts();
+  @Input()
+  public products: IProduct[] = null;
+  @Input()
+  public categories: ICategory[] = null
 
-  constructor(private productsService: ProductsService){
+
+  goToBasket() {
+
   }
 
+  goToProduct() {
 
+  }
+
+  redirectTo() {
+
+  }
 }
