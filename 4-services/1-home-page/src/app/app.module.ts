@@ -12,6 +12,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import {BASE_URL_TOKEN, baseUrl} from './services/interceptor/config';
 import { environment } from './../environments/environment';
 import { CategoriesService } from './services/categories/category.service';
+import {ModalModule} from "./modal/modal.module";
 
 @NgModule({
   declarations: [
@@ -22,15 +23,19 @@ import { CategoriesService } from './services/categories/category.service';
     SideMenuComponent,
     ProductCardComponent,
   ],
-  imports: [BrowserModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    ModalModule
+  ],
   providers: [
     ProductsService,
     CategoriesService,
 
     {
       provide: BASE_URL_TOKEN,
-      //useValue: environment.baseUrl,
-      useValue: baseUrl
+      useValue: environment.baseUrl,
+      //useValue: baseUrl
     },
     {
       provide: HTTP_INTERCEPTORS,
