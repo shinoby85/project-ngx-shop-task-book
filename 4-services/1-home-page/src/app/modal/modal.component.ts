@@ -8,11 +8,24 @@ import {ModalService} from "./modal.service";
 })
 export class ModalComponent implements OnInit {
 
-  public product = this.modalService.modalSequence$
+  public content!:any
+  public isOpen=false
 
   constructor(private readonly modalService:ModalService) { }
 
   ngOnInit(): void {
+    this.modalService.modalSequence$.subscribe((data)=>{
+      if (!data){
+        this.isOpen=false
+        return
+      }
+      this.isOpen=true
+      this.content=data
+    })
   }
 
+
+  close() {
+    this.modalService.close()
+  }
 }

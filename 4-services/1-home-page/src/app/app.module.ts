@@ -26,7 +26,7 @@ import {ModalModule} from "./modal/modal.module";
   imports: [
     BrowserModule,
     HttpClientModule,
-    ModalModule
+    ModalModule.forRoot()
   ],
   providers: [
     ProductsService,
