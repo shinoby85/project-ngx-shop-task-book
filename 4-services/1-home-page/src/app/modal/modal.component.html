@@ -1,8 +1,5 @@
 <div class="modal" [ngClass]="{open: isOpen}">
   <div class="content">
-    <pre>
-      {{content | json}}
-    </pre>
-    <button (click)="close()">Close</button>
+    <div class="modal-content" #modalContent></div>
   </div>
 </div>

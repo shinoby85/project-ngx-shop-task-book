@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import {ModalService} from "../../modal/modal.service";
+import {CardConfirmComponent} from "./card-confirm/card-confirm.component";
 
 @Component({
   selector: 'ngx-shop-product-card',
@@ -25,6 +26,19 @@ export class ProductCardComponent {
   }
 
   addToCard():void {
-    this.modalService.open(this.product)
+    this.modalService.open({
+      component: CardConfirmComponent,
+      context:{
+        product: {...this.product},
+        save:() => {
+          console.log('save')
+          this.modalService.close()
+
+        },
+        close:()=>{
+          this.modalService.close()
+        }
+      }
+    })
   }
 }

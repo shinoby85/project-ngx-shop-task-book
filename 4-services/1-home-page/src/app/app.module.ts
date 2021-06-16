@@ -13,6 +13,8 @@ import {BASE_URL_TOKEN, baseUrl} from './services/interceptor/config';
 import { environment } from './../environments/environment';
 import { CategoriesService } from './services/categories/category.service';
 import {ModalModule} from "./modal/modal.module";
+import { CardConfirmComponent } from './home-page/product-card/card-confirm/card-confirm.component';
+import {FlexLayoutModule} from "@angular/flex-layout";
 
 @NgModule({
   declarations: [
@@ -22,11 +24,13 @@ import {ModalModule} from "./modal/modal.module";
     FooterComponent,
     SideMenuComponent,
     ProductCardComponent,
+    CardConfirmComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    FlexLayoutModule
   ],
   providers: [
     ProductsService,
